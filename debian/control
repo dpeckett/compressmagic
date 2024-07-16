@@ -1,0 +1,31 @@
+Source: golang-github-dpeckett-compressmagic
+Section: golang
+Priority: optional
+Maintainer: Damian Peckett <damian@pecke.tt>
+Uploaders: Damian Peckett <damian@pecke.tt>
+Rules-Requires-Root: no
+Build-Depends: debhelper-compat (= 13),
+               dh-sequence-golang,
+               golang-any,
+               golang-github-klauspost-compress-dev,
+               golang-github-pierrec-lz4-dev,
+               golang-github-stretchr-testify-dev,
+               golang-github-ulikunitz-xz-dev
+Testsuite: autopkgtest-pkg-go
+Standards-Version: 4.6.2
+Vcs-Browser: https://github.com/dpeckett/compressmagic
+Vcs-Git: https://github.com/dpeckett/compressmagic.git
+Homepage: https://github.com/dpeckett/compressmagic
+XS-Go-Import-Path: github.com/dpeckett/compressmagic
+
+Package: golang-github-dpeckett-compressmagic-dev
+Architecture: all
+Multi-Arch: foreign
+Depends: golang-github-klauspost-compress-dev,
+         golang-github-pierrec-lz4-dev,
+         golang-github-stretchr-testify-dev,
+         golang-github-ulikunitz-xz-dev,
+         ${misc:Depends}
+Description:
+ A Go [io.ReadCloser] and [io.WriteCloser] that automatically detects and 
+ compresses/decompresses a wide variety of compression formats. (library)
