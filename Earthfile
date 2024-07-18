@@ -1,5 +1,5 @@
 VERSION 0.8
-FROM golang:1.22-bookworm
+FROM golang:1.21-bookworm
 WORKDIR /workspace
 
 all:
@@ -10,11 +10,12 @@ all:
 
 tidy:
   LOCALLY
+  ENV GOTOOLCHAIN=go1.21.8
   RUN go mod tidy
   RUN go fmt ./...
 
 lint:
-  FROM golangci/golangci-lint:v1.57.2
+  FROM golangci/golangci-lint:v1.59.1
   WORKDIR /workspace
   COPY . .
   RUN golangci-lint run --timeout 5m ./...
@@ -29,9 +30,11 @@ test:
 
 package:
   FROM debian:bookworm
+  # Use bookworm-backports for newer golang versions
+  RUN echo "deb http://deb.debian.org/debian bookworm-backports main" > /etc/apt/sources.list.d/backports.list
   RUN apt update
   # Tooling
-  RUN apt install -y devscripts dpkg-dev debhelper-compat dh-sequence-golang golang-any golang git
+  RUN apt install -y devscripts dpkg-dev debhelper-compat dh-sequence-golang golang-any golang-1.21 git
   # Build Dependencies
   RUN apt install -y golang-github-klauspost-compress-dev \
     golang-github-pierrec-lz4-dev \

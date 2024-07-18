@@ -1,12 +1,13 @@
 module github.com/dpeckett/compressmagic
 
-go 1.22.0
+go 1.21
 
 require (
-	github.com/klauspost/compress v1.17.9
-	github.com/pierrec/lz4 v2.5.2+incompatible
-	github.com/stretchr/testify v1.9.0
-	github.com/ulikunitz/xz v0.5.12
+	github.com/klauspost/compress v1.15.12
+	github.com/pierrec/lz4 v2.6.1+incompatible
+	github.com/pierrec/lz4/v4 v4.1.18
+	github.com/stretchr/testify v1.8.1
+	github.com/ulikunitz/xz v0.5.6
 )
 
 require (
