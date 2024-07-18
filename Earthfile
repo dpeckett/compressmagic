@@ -35,8 +35,9 @@ package:
   # Tooling
   RUN apt install -y devscripts dpkg-dev debhelper-compat dh-sequence-golang golang-any golang-1.21 git
   # Build Dependencies
-  RUN apt install -y golang-github-klauspost-compress-dev \
-    golang-github-pierrec-lz4-dev \
+  RUN apt install -y \
+    golang-github-klauspost-compress-dev \
+    golang-github-pierrec-lz4-dev=4.1.18-1~bpo12+1 \
     golang-github-stretchr-testify-dev \
     golang-github-ulikunitz-xz-dev
   RUN mkdir -p /workspace/golang-github-dpeckett-compressmagic
