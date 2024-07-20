@@ -44,6 +44,8 @@ package:
   RUN mkdir -p /workspace/golang-github-dpeckett-compressmagic
   WORKDIR /workspace/golang-github-dpeckett-compressmagic
   COPY . .
+  RUN if [ -n "$(git status --porcelain)" ]; then echo "Please commit your changes."; exit 1; fi
+  RUN if [ -z "$(git describe --tags --exact-match 2>/dev/null)" ]; then echo "Current commit is not tagged."; exit 1; fi
   COPY debian/scripts/generate-changelog.sh /usr/local/bin/generate-changelog.sh
   RUN chmod +x /usr/local/bin/generate-changelog.sh
   ENV DEBEMAIL="damian@pecke.tt"
