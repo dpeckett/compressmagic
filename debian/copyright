@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Source: https://github.com/dpeckett/compressmagic
-Upstream-Name: compressmagic
+Source: https://github.com/dpeckett/uncompr
+Upstream-Name: uncompr
 Upstream-Contact: Damian Peckett <damian@pecke.tt>
 
 Files: *

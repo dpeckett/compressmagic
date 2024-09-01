@@ -1,4 +1,4 @@
-module github.com/dpeckett/compressmagic
+module github.com/dpeckett/uncompr
 
 go 1.22
 

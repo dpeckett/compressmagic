@@ -7,7 +7,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-package compressmagic_test
+package uncompr_test
 
 import (
 	"errors"
@@ -15,7 +15,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/dpeckett/compressmagic"
+	"github.com/dpeckett/uncompr"
 	"github.com/stretchr/testify/require"
 )
 
@@ -27,7 +27,7 @@ func TestReader(t *testing.T) {
 			require.NoError(t, f.Close())
 		})
 
-		r, err := compressmagic.NewReader(f)
+		r, err := uncompr.NewReader(f)
 		require.NoError(t, err)
 		t.Cleanup(func() {
 			require.NoError(t, r.Close())
@@ -51,7 +51,7 @@ func TestReader(t *testing.T) {
 			require.NoError(t, f.Close())
 		})
 
-		r, err := compressmagic.NewReader(f)
+		r, err := uncompr.NewReader(f)
 		require.NoError(t, err)
 		t.Cleanup(func() {
 			require.NoError(t, r.Close())
@@ -72,7 +72,7 @@ func TestReader(t *testing.T) {
 		f, err := os.Open("testdata/hello.lz4")
 		require.NoError(t, err)
 
-		r, err := compressmagic.NewReader(f)
+		r, err := uncompr.NewReader(f)
 		require.NoError(t, err)
 
 		expected := "Hello, World!"
@@ -93,7 +93,7 @@ func TestReader(t *testing.T) {
 			require.NoError(t, f.Close())
 		})
 
-		r, err := compressmagic.NewReader(f)
+		r, err := uncompr.NewReader(f)
 		require.NoError(t, err)
 		t.Cleanup(func() {
 			require.NoError(t, r.Close())
@@ -117,7 +117,7 @@ func TestReader(t *testing.T) {
 			require.NoError(t, f.Close())
 		})
 
-		r, err := compressmagic.NewReader(f)
+		r, err := uncompr.NewReader(f)
 		require.NoError(t, err)
 		t.Cleanup(func() {
 			require.NoError(t, r.Close())
@@ -141,7 +141,7 @@ func TestReader(t *testing.T) {
 			require.NoError(t, f.Close())
 		})
 
-		r, err := compressmagic.NewReader(f)
+		r, err := uncompr.NewReader(f)
 		require.NoError(t, err)
 		t.Cleanup(func() {
 			require.NoError(t, r.Close())

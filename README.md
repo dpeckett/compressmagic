@@ -1,4 +1,4 @@
-# compressmagic
+# uncompr
 
 A Go [io.ReadCloser](https://pkg.go.dev/io#ReadCloser) and [io.WriteCloser](https://pkg.go.dev/io#WriteCloser)
 that automatically detects and compresses/decompresses a wide variety of compression formats.
@@ -22,7 +22,7 @@ import (
   "log"
   "os"
 
-  "github.com/dpeckett/compressmagic"
+  "github.com/dpeckett/uncompr"
 )
 
 func main() {
@@ -32,7 +32,7 @@ func main() {
   }
   defer f.Close()
 
-  r, err := compressmagic.NewReader(f)
+  r, err := uncompr.NewReader(f)
   if err != nil {
     log.Fatal(err)
   }

@@ -41,8 +41,8 @@ package:
     golang-github-pierrec-lz4-dev=4.1.18-1~bpo12+1 \
     golang-github-stretchr-testify-dev \
     golang-github-ulikunitz-xz-dev
-  RUN mkdir -p /workspace/golang-github-dpeckett-compressmagic
-  WORKDIR /workspace/golang-github-dpeckett-compressmagic
+  RUN mkdir -p /workspace/golang-github-dpeckett-uncompr
+  WORKDIR /workspace/golang-github-dpeckett-uncompr
   COPY . .
   RUN if [ -n "$(git status --porcelain)" ]; then echo "Please commit your changes."; exit 1; fi
   RUN if [ -z "$(git describe --tags --exact-match 2>/dev/null)" ]; then echo "Current commit is not tagged."; exit 1; fi
@@ -52,6 +52,6 @@ package:
   ENV DEBFULLNAME="Damian Peckett"
   RUN /usr/local/bin/generate-changelog.sh
   RUN VERSION=$(git describe --tags --abbrev=0 | tr -d 'v') \
-    && tar -czf ../golang-github-dpeckett-compressmagic_${VERSION}.orig.tar.gz .
+    && tar -czf ../golang-github-dpeckett-uncompr_${VERSION}.orig.tar.gz .
   RUN dpkg-buildpackage -us -uc
   SAVE ARTIFACT /workspace/*.deb AS LOCAL dist/

@@ -7,14 +7,14 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-package compressmagic_test
+package uncompr_test
 
 import (
 	"crypto/sha256"
 	"encoding/hex"
 	"testing"
 
-	"github.com/dpeckett/compressmagic"
+	"github.com/dpeckett/uncompr"
 	"github.com/stretchr/testify/require"
 )
 
@@ -22,7 +22,7 @@ func TestWriter(t *testing.T) {
 	t.Run("GZIP", func(t *testing.T) {
 		h := sha256.New()
 
-		w, err := compressmagic.NewWriter(h, "hello.gz")
+		w, err := uncompr.NewWriter(h, "hello.gz")
 		require.NoError(t, err)
 		t.Cleanup(func() {
 			require.NoError(t, w.Close())
@@ -39,7 +39,7 @@ func TestWriter(t *testing.T) {
 	t.Run("LZ4", func(t *testing.T) {
 		h := sha256.New()
 
-		w, err := compressmagic.NewWriter(h, "hello.lz4")
+		w, err := uncompr.NewWriter(h, "hello.lz4")
 		require.NoError(t, err)
 		t.Cleanup(func() {
 			require.NoError(t, w.Close())
@@ -56,7 +56,7 @@ func TestWriter(t *testing.T) {
 	t.Run("XZ", func(t *testing.T) {
 		h := sha256.New()
 
-		w, err := compressmagic.NewWriter(h, "hello.xz")
+		w, err := uncompr.NewWriter(h, "hello.xz")
 		require.NoError(t, err)
 		t.Cleanup(func() {
 			require.NoError(t, w.Close())
@@ -73,7 +73,7 @@ func TestWriter(t *testing.T) {
 	t.Run("ZSTD", func(t *testing.T) {
 		h := sha256.New()
 
-		w, err := compressmagic.NewWriter(h, "hello.zst")
+		w, err := uncompr.NewWriter(h, "hello.zst")
 		require.NoError(t, err)
 		t.Cleanup(func() {
 			require.NoError(t, w.Close())
@@ -90,7 +90,7 @@ func TestWriter(t *testing.T) {
 	t.Run("None", func(t *testing.T) {
 		h := sha256.New()
 
-		w, err := compressmagic.NewWriter(h, "hello.txt")
+		w, err := uncompr.NewWriter(h, "hello.txt")
 		require.NoError(t, err)
 		t.Cleanup(func() {
 			require.NoError(t, w.Close())

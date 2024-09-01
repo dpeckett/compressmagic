@@ -1,4 +1,4 @@
-Source: golang-github-dpeckett-compressmagic
+Source: golang-github-dpeckett-uncompr
 Section: golang
 Priority: optional
 Maintainer: Damian Peckett <damian@pecke.tt>
@@ -13,12 +13,12 @@ Build-Depends: debhelper-compat (= 13),
                golang-github-ulikunitz-xz-dev
 Testsuite: autopkgtest-pkg-go
 Standards-Version: 4.6.2
-Vcs-Browser: https://github.com/dpeckett/compressmagic
-Vcs-Git: https://github.com/dpeckett/compressmagic.git
-Homepage: https://github.com/dpeckett/compressmagic
-XS-Go-Import-Path: github.com/dpeckett/compressmagic
+Vcs-Browser: https://github.com/dpeckett/uncompr
+Vcs-Git: https://github.com/dpeckett/uncompr.git
+Homepage: https://github.com/dpeckett/uncompr
+XS-Go-Import-Path: github.com/dpeckett/uncompr
 
-Package: golang-github-dpeckett-compressmagic-dev
+Package: golang-github-dpeckett-uncompr-dev
 Architecture: all
 Multi-Arch: foreign
 Depends: golang-github-klauspost-compress-dev,
